@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import icon_bot from "../assets/icon-bot.png";
+import icon_bot from "../assets/ai-icon.svg";
 import { useAppContext } from "../contexts/AppContext";
 import Typing from "../utils/Typing";
 import Typewriter from "../utils/Typewriter";
@@ -20,13 +20,13 @@ const Chat = () => {
           <div
             key={idx}
             className={`${
-              message.role === "assistant" ? "flex gap-1 items-start my-1" : ""
+              message.role === "assistant" ? "flex gap-1 items-start my-1 max-w-[85%]" : ""
             }`}
           >
             {/* Bot Icon */}
             {message.role === "assistant" && (
-              <div className="bg-slate-200 rounded-full shrink-0 mt-1">
-                <img src={icon_bot} className="size-8" alt="bot icon" />
+              <div className="rounded-full shrink-0 mt-1">
+                <img src={icon_bot} className="size-7" alt="bot icon" />
               </div>
             )}
 
@@ -40,7 +40,7 @@ const Chat = () => {
                   className={`px-3 py-2  ${
                     message.role === "assistant"
                       ? "bg-transparent rounded-2xl"
-                      : "bg-[#4d4d4d] max-w-[85%] text-white rounded-full px-5"
+                      : "bg-[#4d4d4d]  text-white rounded-full px-5"
                   }`}
                 >
                   {message.content === "typing" ? <Typing /> : ""}
