@@ -20,7 +20,7 @@ const Chat = () => {
           <div
             key={idx}
             className={`${
-              message.role === "assistant" ? "flex gap-1 items-start my-1 max-w-[85%]" : ""
+              message.role === "assistant" ? "flex gap-1 items-start my-1" : ""
             }`}
           >
             {/* Bot Icon */}
@@ -40,7 +40,7 @@ const Chat = () => {
                   className={`px-3 py-2  ${
                     message.role === "assistant"
                       ? "bg-transparent rounded-2xl"
-                      : "bg-[#4d4d4d]  text-white rounded-full px-5"
+                      : "bg-[#4d4d4d]  max-w-[85%] text-white rounded-full px-5"
                   }`}
                 >
                   {message.content === "typing" ? <Typing /> : ""}
