@@ -13,9 +13,9 @@ const Chat = () => {
   }, [chatHistory]);
 
   return (
-    <div>
+    <div className={`overflow-y-auto custom-scrollbar  ${chatHistory.length === 2 ? "mb-10" : "mb-0"}`}>
       {/* Conversation */}
-      <div className="h-[73vh] p-3 flex flex-col gap-2 overflow-y-scroll custom-scrollbar text-[15px]">
+      <div className={`w-full p-3 flex flex-col gap-3 text-[15px]`}>
         {chatHistory.map((message, idx) => (
           <div
             key={idx}
@@ -25,22 +25,22 @@ const Chat = () => {
           >
             {/* Bot Icon */}
             {message.role === "assistant" && (
-              <div className="rounded-full shrink-0 mt-1">
-                <img src={icon_bot} className="size-7" alt="bot icon" />
+              <div className="rounded-full bg-black size-[38px] grid place-items-center shrink-0 mt-0.5">
+                <img draggable={false} src={icon_bot} className="size-5" alt="bot icon" />
               </div>
             )}
 
             {message.role !== "developer" && (
               <div
                 className={`${
-                  message.role === "assistant" ? "" : "flex justify-end"
+                  message.role === "assistant" ? "max-w-[85%]" : "flex justify-end"
                 }`}
               >
                 <div
                   className={`px-3 py-2  ${
                     message.role === "assistant"
-                      ? "bg-transparent rounded-2xl"
-                      : "bg-[#4d4d4d]  max-w-[85%] text-white rounded-full px-5"
+                      ? "rounded-2xl"
+                      : "bg-[#4d4d4d]  max-w-[80%] text-white rounded-3xl px-4"
                   }`}
                 >
                   {message.content === "typing" ? <Typing /> : ""}

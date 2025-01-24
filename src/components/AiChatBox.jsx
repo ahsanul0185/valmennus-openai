@@ -64,7 +64,7 @@ const AiChatBox = () => {
 
   return (
     <div
-      className={`absolute inset-0 z-0 w-96 flex flex-col bg-darkGray h-full duration-300 ${
+      className={`absolute inset-0 z-0 w-[470px] flex flex-col bg-darkGray h-full duration-300 ${
         isChatBoxOpen ? "-translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -79,12 +79,12 @@ const AiChatBox = () => {
       </div>
 
       {/* Chat */}
-      <div className="flex-1 px-2">
+      <div className="min-h-0 h-full px-2 flex flex-col justify-end">
         <Chat />
       </div>
 
       {/* Bottom Input Field*/}
-      <div className="px-5 pb-6">
+      <div className="px-5 pb-6 shrink-0">
         <label
           htmlFor="inputBox"
           className="block relative bg-[#1e1e1e] rounded-[30px] overflow-clip px-4 py-2"

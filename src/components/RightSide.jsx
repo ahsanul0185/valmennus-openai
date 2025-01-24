@@ -13,7 +13,7 @@ const RightSide = () => {
 
 
   return (
-    <div className='hidden lg:flex flex-col justify-between h-screen w-64 py-8 px-10'>
+    <div className='hidden lg:flex flex-col justify-between h-screen w-72 py-8 px-4'>
 
       {/* Settings icon */}
 <SettingsIcon />

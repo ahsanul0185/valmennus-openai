@@ -5,6 +5,7 @@ const AppContext = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [chatHistory, setChatHistory] = useState([
+    { role: "developer", content: "You are a helpful assistant, you will answer shortly." },
     { role: "assistant", content: "Hello, How can I assist you today?" },
   ]);
 
