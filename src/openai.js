@@ -48,8 +48,6 @@ export const sendMessageToOpenAIFetch = async (userInput, chat) => {
 export const getRelevantContent = (question, contentData) => {
   const keywords = question.toLowerCase().split(/\s+/);
     
-    
-    
   return contentData.filter(({ title, details }) => {
       const contentText = `${title} ${details}`.toLowerCase();
       return keywords.some(keyword => contentText.includes(keyword));

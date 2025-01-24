@@ -11,7 +11,7 @@ export default {
         light : "#878787"
       },
       screens: {
-        'xs': '400px',    
+        'xs': '470px',    
         'sm': '640px',    
         'md': '835px',    
         'lg': '1024px',   

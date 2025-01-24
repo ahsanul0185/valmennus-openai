@@ -49,13 +49,13 @@ const SidebarContent = () => {
 
       {/* Contents */}
       <div className="p-3 mt-16">
-        <h2 className="text-lg font-semibold mb-5 px-3">
+        <h2 onClick={() => setSelectedContent(contentData[0].details)} className="text-lg font-semibold mb-5 px-3 cursor-pointer">
           {" "}
           Talousmatematiikka{" "}
         </h2>
 
         <ul className="flex flex-col justify-start text-[#bfbfbf]">
-          {contentData.map((item, idx) => (
+          {contentData.map((item, idx) => ( idx > 0 &&
             <li
               key={idx}
               onClick={() => setSelectedContent(item.details)}
