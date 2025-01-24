@@ -27,7 +27,7 @@ const App = () => {
       {/* Left Sidebar */}
       <div
         className={`absolute md:relative h-screen z-10 duration-300  ${
-          isChatBoxOpen ? "w-96" : "w-72"
+          isChatBoxOpen ? "w-96" : "w-[300px]"
         }  ${showTabletSidebar ? "-translate-x-0" : "-translate-x-full md:-translate-x-0"}`}
       >
         <AiChatBox />

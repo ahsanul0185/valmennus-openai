@@ -9,7 +9,7 @@ const SidebarContent = () => {
   const { contentData, isChatBoxOpen, setSelectedContent, setShowTabletSidebar, showSidebar, setShowSidebar } = useAppContext();
 
   return (
-    <div className={`absolute w-72 h-full z-10 duration-300 ${ isChatBoxOpen && showSidebar ? "translate-x-0 bg-black" : !isChatBoxOpen ? "-translate-x-0 bg-darkGray" : isChatBoxOpen ? "-translate-x-full bg-darkGray" : "bg-darkGray"} `}>
+    <div className={`absolute w-[300px] h-full z-10 duration-300 ${ isChatBoxOpen && showSidebar ? "translate-x-0 bg-black" : !isChatBoxOpen ? "-translate-x-0 bg-darkGray" : isChatBoxOpen ? "-translate-x-full bg-darkGray" : "bg-darkGray"} `}>
       {/* Top Section */}
       <div className="flex justify-between items-center p-6">
         <div className="flex items-center gap-6">
