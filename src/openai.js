@@ -15,7 +15,7 @@ export const sendMessageToOpenAIFetch = async (userInput, chat) => {
   };
 
     const messages = contextData.length > 0 ? [...chat, contextMessage, { role: "user", content: userInput }] : [...chat, { role: "user", content: userInput }] ;
-  
+
     try {
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
@@ -47,7 +47,7 @@ export const sendMessageToOpenAIFetch = async (userInput, chat) => {
 
 export const getRelevantContent = (question, contentData) => {
   const keywords = question.toLowerCase().split(/\s+/);
-  
+    
   return contentData.filter(({ title, details }) => {
       const contentText = `${title} ${details}`.toLowerCase();
       return keywords.some(keyword => contentText.includes(keyword));

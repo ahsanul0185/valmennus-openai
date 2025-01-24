@@ -69,8 +69,8 @@ const AiChatBox = () => {
       }`}
     >
       {/* Top */}
-      <div className="flex items-center gap-6  p-7">
-        <button onClick={() => setShowTabletSidebar(false)}>
+      <div className="flex items-center gap-6  py-7 px-5">
+        <button className="block md:hidden" onClick={() => setShowTabletSidebar(false)}>
           <img draggable={false} src={angleLeft} alt="" />
         </button>
         <button onClick={() => setShowSidebar((prev) => !prev)}>
