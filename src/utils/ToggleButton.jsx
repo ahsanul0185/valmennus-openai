@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const ToggleButton = ({ isChecked, setIsChecked, setShowTabletSidebar }) => {
+const ToggleButton = ({ isChecked, setIsChecked, setShowTabletSidebar, setShowSidebar }) => {
 
   // const [isChecked, setIsChecked] = useState(false);
 
@@ -13,7 +13,7 @@ const ToggleButton = ({ isChecked, setIsChecked, setShowTabletSidebar }) => {
           <input
             type="checkbox"
             checked={isChecked}
-            onChange={() => { setIsChecked((prev) => !prev); setShowTabletSidebar(true) }}
+            onChange={() => { setIsChecked((prev) => !prev); setShowTabletSidebar(true); setShowSidebar(false) }}
             className="sr-only"
           />
           <div

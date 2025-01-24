@@ -10,7 +10,7 @@ import icon_sidebar from "./assets/sidebar.svg"
 import SettingsIcon from "./utils/SettingsIcon";
 
 const App = () => {
-  const { isChatBoxOpen, setIsChatBoxOpen, showTabletSidebar, setShowTabletSidebar } = useAppContext();
+  const { isChatBoxOpen, setIsChatBoxOpen, setShowSidebar, showTabletSidebar, setShowTabletSidebar } = useAppContext();
 
   return (
     <div className="relative h-screen flex text-white overflow-clip z-0">
@@ -46,6 +46,7 @@ const App = () => {
           isChecked={isChatBoxOpen}
           setIsChecked={setIsChatBoxOpen}
           setShowTabletSidebar={setShowTabletSidebar}
+          setShowSidebar={setShowSidebar}
         />
         <p className="text-center text-sm text-light mt-2">
           Aktivoi tekoäly ja tehosta oppimistasi!
