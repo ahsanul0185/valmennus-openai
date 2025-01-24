@@ -30,17 +30,17 @@ const SidebarContent = () => {
         <div className="flex items-center gap-6">
           {!showSidebar && !isChatBoxOpen ? (
             <button className="block md:hidden" onClick={() => setShowTabletSidebar(false)}>
-              <img draggable={false} src={angleLeft} alt="" />
+              <img draggable={false} src={angleLeft} onClick={() => setShowTabletSidebar(false)} alt="" />
             </button>
           ) : !isChatBoxOpen ? (
-            <button>
+            <button className="block md:hidden" >
               <img draggable={false} src={angleLeft} alt="" />
             </button>
           ) : (
             ""
           )}
           {
-            <button className={`${showSidebar ? "visible" : "invisible" }`} onClick={() => showSidebar && setShowSidebar(false)}>
+            <button className={`${showSidebar ? "visible" : "invisible" } ${isChatBoxOpen ? "visible" : "invisible"}`} onClick={() => showSidebar && setShowSidebar(false)}>
             <img draggable={false} src={icon_sidebar} alt="" />
           </button>
           }
