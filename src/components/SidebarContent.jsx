@@ -15,7 +15,7 @@ const SidebarContent = () => {
 
   return (
     <div
-      className={`absolute w-[300px] h-full z-10 duration-300 ${
+      className={`absolute  w-[300px] h-full z-10 duration-300 ${
         isChatBoxOpen && showSidebar
           ? "translate-x-0 bg-black"
           : !isChatBoxOpen
@@ -40,7 +40,7 @@ const SidebarContent = () => {
             ""
           )}
           {
-            showSidebar && <button onClick={() => showSidebar && setShowSidebar(false)}>
+            <button className={`${showSidebar ? "visible" : "invisible" }`} onClick={() => showSidebar && setShowSidebar(false)}>
             <img draggable={false} src={icon_sidebar} alt="" />
           </button>
           }
