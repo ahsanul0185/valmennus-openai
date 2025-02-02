@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 192.168.0.108",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -15,7 +15,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.3",
-    "react-simple-typewriter": "^5.0.1"
+    "react-simple-typewriter": "^5.0.1",
+    "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -2,6 +2,7 @@ import React from "react";
 import angleLeft from "../assets/angle-left.svg";
 import icon_sidebar from "../assets/sidebar.svg";
 import { useAppContext } from "../contexts/AppContext";
+import ToggleButton from "../utils/ToggleButton";
 
 const SidebarContent = () => {
   const {
@@ -11,6 +12,7 @@ const SidebarContent = () => {
     setShowTabletSidebar,
     showSidebar,
     setShowSidebar,
+    setIsChatBoxOpen
   } = useAppContext();
 
   return (
@@ -21,7 +23,7 @@ const SidebarContent = () => {
           : !isChatBoxOpen
           ? "-translate-x-0 bg-[#0b0b0b]"
           : isChatBoxOpen
-          ? "-translate-x-full bg-[#0b0b0b]"
+            ? "-translate-x-full bg-[#0b0b0b]"
           : "bg-[#0b0b0b]"
       } `}
     >
@@ -29,11 +31,11 @@ const SidebarContent = () => {
       <div className="flex justify-between items-center p-6">
         <div className="flex items-center gap-6">
           {!showSidebar && !isChatBoxOpen ? (
-            <button className="block md:hidden" onClick={() => setShowTabletSidebar(false)}>
+            <button className="block md:hidden size-3.5" onClick={() => setShowTabletSidebar(false)}>
               <img draggable={false} src={angleLeft} onClick={() => setShowTabletSidebar(false)} alt="" />
             </button>
           ) : !isChatBoxOpen ? (
-            <button className="block md:hidden" >
+            <button className="block md:hidden size-3.5" >
               <img draggable={false} src={angleLeft} alt="" />
             </button>
           ) : (
@@ -45,16 +47,26 @@ const SidebarContent = () => {
           </button>
           }
         </div>
+
+
+        <ToggleButton
+          isChecked={isChatBoxOpen}
+          setIsChecked={setIsChatBoxOpen}
+          setShowTabletSidebar={setShowTabletSidebar}
+          setShowSidebar={setShowSidebar}
+          className="flex sm:hidden absolute top-3 left-1/2 -translate-x-1/2 scale-75"
+          text="Aktivoi tekoäly"
+        />
       </div>
 
       {/* Contents */}
       <div className="p-3 mt-16">
-        <h2 onClick={() => setSelectedContent(contentData[0].details)} className="text-lg font-semibold mb-5 px-3 cursor-pointer">
+        <h2 onClick={() => setSelectedContent(contentData[0].details)} className="sm:text-lg font-semibold mb-5 px-3 cursor-pointer">
           {" "}
           Talousmatematiikka{" "}
         </h2>
 
-        <ul className="flex flex-col justify-start text-[#bfbfbf]">
+        <ul className="text-sm sm:text-base flex flex-col justify-start text-[#bfbfbf]">
           {contentData.map((item, idx) => ( idx > 0 &&
             <li
               key={idx}

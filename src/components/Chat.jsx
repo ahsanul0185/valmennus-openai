@@ -15,7 +15,7 @@ const Chat = () => {
   return (
     <div className={`overflow-y-auto custom-scrollbar  ${chatHistory.length === 2 ? "mb-10" : "mb-0"}`}>
       {/* Conversation */}
-      <div className={`w-full p-3 flex flex-col gap-3 text-[15px]`}>
+      <div className={`w-full p-3 flex flex-col gap-3 text-sm sm:text-[15px]`}>
         {chatHistory.map((message, idx) => (
           <div
             key={idx}

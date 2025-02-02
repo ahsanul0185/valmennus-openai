@@ -18,8 +18,3 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: black;
 }
-
-.markdown-content strong {
-  margin-top: 25px; /* Adjust spacing */
-  display: inline-block;
-}

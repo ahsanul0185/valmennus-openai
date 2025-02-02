@@ -1,8 +1,11 @@
-import { contentData } from "./contentData";
+import { dataContent_1 } from "./contentData-1";
+import { dataContent_2 } from "./contentData-2";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 export const sendMessageToOpenAIFetch = async (userInput, chat) => {
+
+    const contentData = [...dataContent_1, ...dataContent_2];
 
   const contextData = getRelevantContent(userInput, contentData);
 

@@ -1,12 +1,11 @@
+
 import React, { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
-const ToggleButton = ({ isChecked, setIsChecked, setShowTabletSidebar, setShowSidebar }) => {
-
-  // const [isChecked, setIsChecked] = useState(false);
-
+const ToggleButton = ({ isChecked, setIsChecked, setShowTabletSidebar, setShowSidebar, className, text = "Aktivoi tekoäly ja tehosta oppimistasi!" }) => {
 
   return (
-    <>
+    <div className={twMerge("flex flex-col items-center", className)}>
       <label className="flex cursor-pointer select-none items-center scale-75">
         <div className="relative">
           <input
@@ -21,11 +20,15 @@ const ToggleButton = ({ isChecked, setIsChecked, setShowTabletSidebar, setShowSi
             }`}
           ></div>
           <div
-            className={`absolute left-0 top-1/2 -translate-y-1/2  flex size-5 items-center justify-center rounded-full bg-black transition ${isChecked ? "translate-x-[34px]" : "translate-x-[2px]"}`}
+            className={`absolute left-0 top-1/2 -translate-y-1/2  flex size-5 items-center justify-center rounded-full transition ${isChecked ? "translate-x-[34px] bg-[#6e3b00]" : "translate-x-[2px] bg-black"}`}
           ></div>
         </div>
       </label>
-    </>
+
+      <p className="text-center text-sm text-light mt-2">
+          {text}
+        </p>
+    </div>
   );
 };
 

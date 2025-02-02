@@ -9,7 +9,7 @@ import { sendMessageToOpenAIFetch } from "../openai";
 import { useRef } from "react";
 
 const AiChatBox = () => {
-  const { isChatBoxOpen, setShowSidebar, setShowTabletSidebar, setChatHistory, chatHistory } =
+  const { isChatBoxOpen, setIsChatBoxOpen, setShowSidebar, setShowTabletSidebar, setChatHistory, chatHistory } =
     useAppContext();
   const [userInput, setUserInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -64,27 +64,32 @@ const AiChatBox = () => {
 
   return (
     <div
-      className={`absolute inset-0 z-0 w-full xs:w-[470px] flex flex-col bg-darkGray h-full duration-300 ${
+      className={`absolute inset-0 z-0 w-full xs:w-[370px] xl:w-[470px] flex flex-col bg-darkGray h-full duration-300 ${
         isChatBoxOpen ? "-translate-x-0" : "-translate-x-full"
       }`}
     >
       {/* Top */}
-      <div className="flex items-center gap-6  py-7 px-5">
-        <button className="block md:hidden" onClick={() => setShowTabletSidebar(false)}>
-          <img draggable={false} src={angleLeft} alt="" />
+      <div className="flex items-center gap-6 py-5 sm:py-7 px-5">
+        {/* back button for desktop */}
+        <button className="hidden sm:block md:hidden" onClick={() => setShowTabletSidebar(false)}>
+          <img className="size-3.5" draggable={false} src={angleLeft} alt="" />
         </button>
-        <button onClick={() => setShowSidebar((prev) => !prev)}>
+        {/* back button for mobile */}
+        <button className="block sm:hidden" onClick={() => setIsChatBoxOpen(false)}>
+          <img className="size-3.5" draggable={false} src={angleLeft} alt="" />
+        </button>
+        <button className="hidden sm:block" onClick={() => setShowSidebar((prev) => !prev)}>
           <img draggable={false} src={icon_sidebar} alt="" />
         </button>
       </div>
 
       {/* Chat */}
-      <div className="min-h-0 h-full px-2 flex flex-col justify-end">
+      <div className="min-h-0 h-full sm:px-2 flex flex-col justify-end">
         <Chat />
       </div>
 
       {/* Bottom Input Field*/}
-      <div className="px-5 pb-6 shrink-0">
+      <div className="px-3 sm:px-5 pb-2 sm:pb-6 shrink-0">
         <label
           htmlFor="inputBox"
           className="block relative bg-[#1e1e1e] rounded-[30px] overflow-clip px-4 py-2"
@@ -97,7 +102,7 @@ const AiChatBox = () => {
             value={userInput}
             rows={1}
             autoFocus
-            className="bg-[#1e1e1e] px-2 pt-2 w-full outline-none  custom-scrollbar resize-none"
+            className="text-sm sm:text-base bg-[#1e1e1e] px-2 pt-2 w-full outline-none  custom-scrollbar resize-none"
             placeholder="Ask Question"
           ></textarea>
           <div className="flex justify-end">
@@ -112,7 +117,7 @@ const AiChatBox = () => {
             </button>
           </div>
         </label>
-        <p className="text-light text-xs text-center mt-4">
+        <p className="text-light text-xs text-center mt-2 sm:mt-4">
           Tekoäly voi tehdä virheitä. Tarkista tärkeät tiedot.
         </p>
       </div>
