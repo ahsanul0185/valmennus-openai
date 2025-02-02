@@ -22,7 +22,9 @@ const SettingsIcon = () => {
 
       <hr />
 
-      <button className='flex items-center gap-3 px-4 py-2.5 w-full duration-200 hover:bg-light/10'>
+      <button onClick={() =>
+          (window.location.href = "https://dashboard-edai.netlify.app/")
+        } className='flex items-center gap-3 px-4 py-2.5 w-full duration-200 hover:bg-light/10'>
         <img draggable={false} src={icon_logout} alt="" className="size-4" />
         Kirjaudu u10S
       </button>  
