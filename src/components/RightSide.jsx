@@ -43,7 +43,7 @@ const RightSide = ({ currentContentData }) => {
         className="flex items-center gap-3 text-sm duration-200 hover:bg-light/10 ml-auto pr-3"
       >
         <img draggable={false} src={icon_logout} alt="" className="size-3.5" />
-        Kirjaudu u10S
+        Kojelauta u10S
       </button>
 
       <div className="mt-40">
