@@ -1,8 +1,9 @@
-import React from "react";
-import SettingsIcon from "../utils/SettingsIcon";
-import { useAppContext } from "../contexts/AppContext";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import arrow_right from "../assets/arrow-right.svg";
 import icon_logout from "../assets/icon-logout-white.svg";
+import { Link } from "react-router-dom";
+import { useAppContext } from "../contexts/AppContext";
 
 const topics = [
   "Aritmeettiset ja geometriset lukujonot",
@@ -11,8 +12,26 @@ const topics = [
   "Tehtävät lukuun",
 ];
 
-const RightSide = () => {
-  const { dataContent_1, dataContent_2, contentData } = useAppContext();
+const RightSide = ({ currentContentData }) => {
+
+  const location = useLocation();
+
+  const [button, setButton] = useState({ text: "", path: "" });
+  const {contentData, setSelectedContent} = useAppContext()
+
+  useEffect(() => {
+    switch (currentContentData[0].title) {
+      case contentData[0][0].title:
+        setButton({ text: contentData[1][0].title, path: "/taloustieto" });
+        break;
+      case contentData[1][0].title:
+        setButton({ text: contentData[0][0].title, path: "/" });
+        break;
+    }
+
+    setSelectedContent(currentContentData[0].details);
+  }, [location.pathname])
+  
 
   return (
     <div className="relative hidden lg:block h-screen w-72 py-8 px-4 z-10">
@@ -42,10 +61,10 @@ const RightSide = () => {
         </ul>
       </div>
 
-      <button className="absolute left-5 bottom-16 text-sm flex gap-2">
-        <span>{contentData[0].title}</span>{" "}
+      <Link to={button.path} className="absolute left-5 bottom-16 text-sm flex gap-2">
+        <span>{ button.text}</span>{" "}
         <img className="size-3.5 mt-1" src={arrow_right} alt="" />{" "}
-      </button>
+      </Link>
     </div>
   );
 };

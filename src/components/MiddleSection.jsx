@@ -16,7 +16,7 @@ const MiddleSection = () => {
       <div ref={topRef} />
       
       <div >
-        <p className="text-sm sm:text-base leading-loose sm:pt-16 lg:pt-0">
+        <p className="text-sm sm:text-base leading-[25px] sm:leading-loose sm:pt-16 lg:pt-0">
           {selectedContent} 
         </p>
       </div>

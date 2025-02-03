@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div className="sm:hidden px-8 py-5 flex justify-between items-center">
       <button onClick={() => setShowTabletSidebar(true)}>
-        <img draggable={false} src={icon_menu} alt="menu icon" />
+        <img draggable={false} className="size-[18px]" src={icon_menu} alt="menu icon" />
       </button>
 
       <button onClick={() => window.location.href = "https://dashboard-edai.netlify.app/"} className="flex items-center text-sm gap-3 duration-200 hover:bg-light/10">

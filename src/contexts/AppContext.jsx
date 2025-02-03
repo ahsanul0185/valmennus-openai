@@ -1,12 +1,10 @@
 import { createContext, useContext, useState } from "react";
-import { dataContent_1 } from "../contentData-1";
-import { dataContent_2 } from "../contentData-2";
+import { dataContent } from "../dataContent";
 
 const AppContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-
-  const [contentData, setContentData] = useState(dataContent_1);
+  const [contentData, setContentData] = useState(dataContent);
 
   const [chatHistory, setChatHistory] = useState([
     {
@@ -20,8 +18,9 @@ export const ContextProvider = ({ children }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showTabletSidebar, setShowTabletSidebar] = useState(false);
   const [selectedContent, setSelectedContent] = useState(
-    contentData[0].details
+    contentData[0][0].details
   );
+
 
   const values = {
     isChatBoxOpen,
@@ -35,8 +34,6 @@ export const ContextProvider = ({ children }) => {
     setShowTabletSidebar,
     chatHistory,
     setChatHistory,
-    dataContent_1,
-    dataContent_2
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

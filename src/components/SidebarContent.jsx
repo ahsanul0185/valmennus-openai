@@ -4,9 +4,8 @@ import icon_sidebar from "../assets/sidebar.svg";
 import { useAppContext } from "../contexts/AppContext";
 import ToggleButton from "../utils/ToggleButton";
 
-const SidebarContent = () => {
+const SidebarContent = ({contentData}) => {
   const {
-    contentData,
     isChatBoxOpen,
     setSelectedContent,
     setShowTabletSidebar,
@@ -17,7 +16,7 @@ const SidebarContent = () => {
 
   return (
     <div
-      className={`absolute  w-[300px] h-full z-10 duration-300 ${
+      className={`absolute  w-[300px] 2xl:w-[350px] h-full z-10 duration-300 ${
         isChatBoxOpen && showSidebar
           ? "translate-x-0 bg-black"
           : !isChatBoxOpen
@@ -57,20 +56,21 @@ const SidebarContent = () => {
           className="flex sm:hidden absolute top-3 left-1/2 -translate-x-1/2 scale-75"
           text="Aktivoi tekoäly"
         />
+
       </div>
 
       {/* Contents */}
       <div className="p-3 mt-16">
-        <h2 onClick={() => setSelectedContent(contentData[0].details)} className="sm:text-lg font-semibold mb-5 px-3 cursor-pointer">
-          {" "}
-          Talousmatematiikka{" "}
+        <h2 onClick={() => {setSelectedContent(contentData[0].details); setShowTabletSidebar(false); setIsChatBoxOpen(false)}} className="sm:text-lg font-semibold mb-5 px-3 cursor-pointer">
+          
+          {contentData[0].title}
         </h2>
 
         <ul className="text-sm sm:text-base flex flex-col justify-start text-[#bfbfbf]">
           {contentData.map((item, idx) => ( idx > 0 &&
             <li
               key={idx}
-              onClick={() => setSelectedContent(item.details)}
+              onClick={() => { setSelectedContent(item.details); setShowTabletSidebar(false); setIsChatBoxOpen(false) }}
               className="cursor-pointer duration-200 hover:bg-light/20 px-3 py-2 rounded-lg"
             >
               {item.title}
